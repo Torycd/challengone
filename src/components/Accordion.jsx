@@ -3,9 +3,9 @@ import Item from "./Item";
 
 const Accordion = ({ data }) => {
   return (
-    <div className="accordiong">
-      {data.map((dt) => (
-        <Item key={dt.title} />
+    <div className="accordion">
+      {data.map((dt, i) => (
+        <Item key={dt.title} title={dt.title} text={dt.text} num={i} />
       ))}
     </div>
   );
