@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import React, { Children } from "react";
 
-const Item = ({ num, title, text }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Item = ({ num, title, children, curOpen, onOpen }) => {
+  const isOpen = num === curOpen;
+
   function handleToggle() {
-    setIsOpen(!isOpen);
+    onOpen(num);
   }
   return (
     <div className={isOpen ? "open item" : "item"} onClick={handleToggle}>
-      <p className={isOpen ? "open number" : "number"}>
-        {num < 9 ? `0${num + 1}` : num + 1}
-      </p>
-      <p className={isOpen ? "open title" : "title"}>{title}</p>
+      <p className="number">{num < 9 ? `0${num + 1}` : num + 1}</p>
+      <p className="title">{title}</p>
       <p className="icon">{isOpen ? "-" : "+"}</p>
-      {isOpen ? <p className="content-box">{text}</p> : ""}
+      {isOpen ? <p className="content-box">{children}</p> : ""}
     </div>
   );
 };
