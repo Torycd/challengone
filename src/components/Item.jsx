@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 
 const Item = ({ num, title, children, curOpen, onOpen }) => {
   const isOpen = num === curOpen;
