@@ -4,7 +4,7 @@ const Item = ({ num, title, children, curOpen, onOpen }) => {
   const isOpen = num === curOpen;
 
   function handleToggle() {
-    onOpen(num);
+    onOpen(isOpen ? null : num);
   }
   return (
     <div className={isOpen ? "open item" : "item"} onClick={handleToggle}>
